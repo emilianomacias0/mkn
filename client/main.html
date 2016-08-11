@@ -1,0 +1,81 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+</head>
+
+<template name="main">
+    <div class="container">
+        {{>navBar}}
+        {{>yield}}
+        {{>foot}}
+    </div>
+</template>
+
+
+
+
+
+<template name="navBar">
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{pathFor route='home'}}">Inicio</a></li>
+                <li><a href="{{pathFor route='registro'}}">Registrar</a></li>
+                <li><a href="{{pathFor route='consulta'}}">Consulta</a></li>
+                <li><a href="{{pathFor route='contadores'}}">Contadores</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="{{pathFor route='home'}}">Inicio</a></li>
+                <li><a href="{{pathFor route='registro'}}">Registrar</a></li>
+                <li><a href="{{pathFor route='consulta'}}">Consulta</a></li>
+                <li><a href="{{pathFor route='contadores'}}">Contadores</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        $('.button-collapse').sideNav({
+                    menuWidth: 300, // Default is 240
+                    edge: 'right', // Choose the horizontal origin
+                    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                }
+        );
+    </script>
+</template>
+
+
+<template name="foot">
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+</template>
