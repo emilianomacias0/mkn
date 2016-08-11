@@ -82,9 +82,11 @@
         <item url="file://$USER_HOME$/.meteor/packages/iron_router/1.0.13/web.browser/lib/global_router.js" />
         <item url="file://$USER_HOME$/.meteor/packages/iron_router/1.0.13/web.browser/lib/route.js" />
         <item url="file://$USER_HOME$/.meteor/packages/base64/1.0.9/web.browser/base64.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/risul_accounting/1.0.1/web.browser/packages/risul_accounting.js" />
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-max-heap.js" />
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-heap.js" />
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/max-heap.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/session/1.1.6/web.browser/session.js" />
         <item url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/view.js" />
         <item url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/dombackend.js" />
         <item url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/materializer.js" />
@@ -250,9 +252,11 @@
       <root url="file://$USER_HOME$/.meteor/packages/iron_router/1.0.13/web.browser/lib/global_router.js" />
       <root url="file://$USER_HOME$/.meteor/packages/iron_router/1.0.13/web.browser/lib/route.js" />
       <root url="file://$USER_HOME$/.meteor/packages/base64/1.0.9/web.browser/base64.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/risul_accounting/1.0.1/web.browser/packages/risul_accounting.js" />
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-max-heap.js" />
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-heap.js" />
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/max-heap.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/session/1.1.6/web.browser/session.js" />
       <root url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/view.js" />
       <root url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/dombackend.js" />
       <root url="file://$USER_HOME$/.meteor/packages/blaze/2.1.8/web.browser/materializer.js" />

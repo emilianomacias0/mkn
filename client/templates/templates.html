@@ -52,7 +52,8 @@
             <div class="input-field col s12 m4 l3 "><input type="number" name="denominacion" id="denominacion" ><label for="denominacion">Denominaciòn</label></div>
             <div class="input-field col s12 m4 l3 "><input type="text" name="acargo" id="acargo"><label for="acargo">Encargado</label></div>
             <div class="input-field col s12 m4 l3 "><input type="text" name="telefono" id="telefono"><label for="telefono">Telèfono</label></div>
-            <div class="input-field col s12 m4 l3 "><a class="waves-effect waves-light btn" id="boton"><i class="material-icons right">save</i>Guardar</a></div>
+            <div class="input-field col s12 m4 l3 "><input type="number" name="comision" id="comision"><label for="comision">Comision</label></div>
+            <div class="input-field col s12 m4 l3 "><a class="waves-effect waves-light btn" id="boton" type="submit"><i class="material-icons right">save</i>Guardar</a></div>
         </form>
     </div>
     <script>
@@ -66,9 +67,87 @@
 
 <template name="consulta">
     <h3>Consulta</h3>
+    <div class="row">
+        <div class="input-field col s12">
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                {{#each maquinitas}}
+                <option value="{{alias}}">{{alias}}</option>
+                {{/each}}
+            </select>
+            <label>Maquinitas</label>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 </template>
 
 
 <template name="contadores">
     <h3>Contadores</h3>
+    <div class="row">
+        <div class="input-field col s12">
+            <select id="selectContadores">
+                <option value="" disabled selected>Choose your option</option>
+                {{#each maquinitas}}
+                    <option value="{{_id}}">{{alias}}</option>
+                {{/each}}
+            </select>
+            <label>Maquinitas</label>
+        </div>
+        {{#if seleccionMaquinita}}
+        {{>formContadores}}
+        {{/if}}
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</template>
+
+
+<template name="formContadores">
+        <form action="">
+            <div class="row">
+                <div class="card-content ">
+                    <div class="input-field col s12 m4 l3">
+                        <input disabled id="fecha" type="date" class="validate">
+                        <label for="fecha">Fecha</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="contadorEntrada" type="number" class="validate">
+                        <label for="contadorEntrada">Contador de entrada</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="contadorSalida" type="number" class="validate">
+                        <label for="contadorSalida">Contador de salida</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="recaudado" type="text" class="validate" value="{{totalRecaudado}}" >
+                        <label for="recaudado" class="active">Recaudado</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="totalMonedas" type="number" class="validate"  value="{{totalMonedas}}" >
+                        <label for="totalMonedas" class="active">Total de monedas</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="comision" type="text" class="validate"  value="{{comision}}" >
+                        <label for="comision" class="active">Comision</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="cliente" type="text" class="validate"  value="{{totaCliente}}" >
+                        <label for="cliente" class="active">Total cliente</label>
+                    </div>
+                    <div class="input-field col s12 m4 l3">
+                        <input id="neto" type="text" class="validate"  value="{{neto}}" >
+                        <label for="neto" class="active">Ganancia neta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
 </template>
