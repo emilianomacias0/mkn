@@ -49,7 +49,7 @@ Template.contadores.events({
    'change #selectContadores':function(evt){
       var idMaquinita = $('#selectContadores').val();
        Session.set('maquinita',idMaquinita);
-       console.log(idMaquinita);
+ 
    }
 });
 
@@ -65,7 +65,15 @@ Template.contadores.helpers({
         return false;
     }
 });
-
+Template.formContadores.rendered = function(){
+    //limpiaFormularioContadores();
+    // Session.set('totalCliente','');
+    // Session.set('recaudado','');
+    // Session.set('totalRecaudado','');
+    // Session.set('salida','');
+    // Session.set('entrada','');
+    // Session.set('maquinita','');
+};
 Template.formContadores.events({
    'keyup #contadorEntrada':function(){
        var entrada = $('#contadorEntrada').val();
@@ -74,7 +82,30 @@ Template.formContadores.events({
     'keyup #contadorSalida':function(){
         var salida = $('#contadorSalida').val();
         Session.set('salida',salida);
-    }
+    },
+    'click #borrar':function(){
+      limpiaFormularioContadores();
+  },
+  'click #guardar':function(){
+    var obj = {};
+      obj.idMaquinita = Session.get('maquinita');
+      obj.fecha = new Date();
+      obj.contadoresEntrada = $('#contadorEntrada').val();
+      obj.contadoresSalida = $('#contadorSalida').val();
+      obj.totalRecaudado = $('#recaudado').val();
+      obj.totalMoneda = $('#totalMonedas').val();
+      obj.totalComision = $('#comision').val();
+      obj.totalCliente = $('#cliente').val();
+      obj.totalNeto = $('#neto').val(); 
+      if(obj.contadoresEntrada != '' && obj.contadoresSalida!=''){
+        swal("Registro exitoso!", "contadores!", "success")
+        Meteor.call('guardaContadores',obj);
+        limpiaFormularioContadores();
+      }else{
+        swal("Error!", "Debes ingresar todos los datos!", "warning")
+      }
+      
+  }
 });
 Template.formContadores.helpers({
    'totalMonedas':function(){
@@ -89,9 +120,10 @@ Template.formContadores.helpers({
        }
    },
     'totalRecaudado':function(){
-        var id = Session.get('maquinita');
+       
         var totalMonedas = parseInt(Session.get('totalRecaudado'));
         if(totalMonedas!==''){
+            var id = Session.get('maquinita');
             var datos = Maquinitas.find({_id:id}).fetch();
             var denominacion = parseInt(datos[0].denominacion);
             var cantidadRecaudada = totalMonedas*denominacion;
@@ -106,7 +138,7 @@ Template.formContadores.helpers({
         var id = Session.get('maquinita');
         if(id!==''){
             var data=Maquinitas.find({_id:id}).fetch();
-            console.log(data[0]);
+
             var comision = data[0].comision;
             return comision+' %';
         }else{
@@ -134,12 +166,33 @@ Template.formContadores.helpers({
             var totalneto =totalRecaudado-totalCliente;
             return accounting.formatMoney(totalneto);
         }
+    },
+    'fecha':function () {
+        var fecha = formateaFecha(new Date());
+
+        return fecha;
     }
 });
-Session.set('totalCliente','');
-Session.set('recaudado','');
-Session.set('totalRecaudado','');
-Session.set('salida','');
-Session.set('entrada','');
-Session.set('maquinita','');
 
+
+limpiaFormularioContadores = function(){
+    $('#contadorEntrada').val('');
+    // $('#contadorEntrada').blur();
+    $('#contadorSalida').val('');
+    // $('#contadorSalida').blur();
+    // $('#recaudado').blur();
+    //$('#totalMonedas').val('');
+    // $('#totalMonedas').blur();
+   // $('#comision').val('');
+    // $('#comision').blur();
+    //$('#cliente').val('');
+    // $('#cliente').blur();
+    //$('#neto').val('');
+    // $('#neto').blur();
+    Session.set('totalCliente','');
+    Session.set('recaudado','');
+    Session.set('totalRecaudado','');
+    Session.set('salida','');
+    Session.set('entrada','');
+    //Session.set('maquinita','');
+}

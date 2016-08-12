@@ -53,7 +53,7 @@
             <div class="input-field col s12 m4 l3 "><input type="text" name="acargo" id="acargo"><label for="acargo">Encargado</label></div>
             <div class="input-field col s12 m4 l3 "><input type="text" name="telefono" id="telefono"><label for="telefono">Telèfono</label></div>
             <div class="input-field col s12 m4 l3 "><input type="number" name="comision" id="comision"><label for="comision">Comision</label></div>
-            <div class="input-field col s12 m4 l3 "><a class="waves-effect waves-light btn" id="boton" type="submit"><i class="material-icons right">save</i>Guardar</a></div>
+            <div class="input-field col s12 m4 l3 "><a class="waves-effect waves-light btn lime accent-3 black-text" id="boton" type="submit"><i class="material-icons right">save</i>Guardar</a></div>
         </form>
     </div>
     <script>
@@ -116,8 +116,8 @@
             <div class="row">
                 <div class="card-content ">
                     <div class="input-field col s12 m4 l3">
-                        <input disabled id="fecha" type="date" class="validate">
-                        <label for="fecha">Fecha</label>
+                        <input disabled id="fecha" type="text" class="validate" value="{{fecha}}">
+                        <label for="fecha" class="active">Fecha</label>
                     </div>
                     <div class="input-field col s12 m4 l3">
                         <input id="contadorEntrada" type="number" class="validate">
@@ -146,6 +146,12 @@
                     <div class="input-field col s12 m4 l3">
                         <input id="neto" type="text" class="validate"  value="{{neto}}" >
                         <label for="neto" class="active">Ganancia neta</label>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <a class="waves-effect waves-light btn lime accent-3 black-text" id="guardar"><i class="material-icons right">save</i>Guardar</a>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <a class="waves-effect waves-light btn red" id="borrar"><i class="material-icons right">delete</i>Borrar</a>
                     </div>
                 </div>
             </div>

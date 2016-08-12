@@ -9,5 +9,9 @@ Meteor.methods({
         obj.creadoEl=new Date();
         Maquinitas.insert(obj);
 
+    },
+    'guardaContadores':function(obj){
+    	// obj.creadoPor = this.userId;
+    	Contadores.insert(obj);
     }
 });
