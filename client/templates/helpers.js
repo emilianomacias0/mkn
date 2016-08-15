@@ -16,8 +16,15 @@ Template.formularioRegistro.events({
        obj.telefono=$('#telefono').val();
        obj.comision=$('#comision').val();
 
-
-       swal({
+       if(obj.ubicacion !== '' && 
+        obj.tipo !=='' &&
+        obj.alias!=='' &&
+        obj.denominacion !== '' &&
+        obj.encargado !== '' &&
+        obj.telefono !== '' &&
+        obj.comision !== ''
+        ){
+           swal({
                title: "Estas seguro?",
                text: "La informacion que ingresaste es correcta?",
                type: "success",
@@ -34,6 +41,15 @@ Template.formularioRegistro.events({
                }
 
            });
+       }else{
+        swal({
+           title: "Error !",
+           text: "Debes llenar todos los campos",
+           type: "warning",
+           closeOnConfirm: false
+        });
+       }
+
    }
 });
 
@@ -48,8 +64,7 @@ Template.consulta.helpers({
 Template.contadores.events({
    'change #selectContadores':function(evt){
       var idMaquinita = $('#selectContadores').val();
-       Session.set('maquinita',idMaquinita);
- 
+       Session.set('maquinita',idMaquinita); 
    }
 });
 
@@ -72,7 +87,7 @@ Template.formContadores.rendered = function(){
     // Session.set('totalRecaudado','');
     // Session.set('salida','');
     // Session.set('entrada','');
-    // Session.set('maquinita','');
+    //Session.set('maquinita','');
 };
 Template.formContadores.events({
    'keyup #contadorEntrada':function(){
