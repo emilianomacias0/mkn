@@ -1,6 +1,29 @@
 /**
  * Created by emi on 9/08/16.
  */
+ Template.consulta.helpers({
+  contadores:function(){
+    return Contadores;
+  },
+   settings: function () {
+        return {
+            collection: Contadores,
+            rowsPerPage: 10,
+            showFilter: true,
+            fields: [
+            {key:'fecha', label:'Fecha',fn: function (value) { return formateaFecha(value) }},
+            {key:'contadoresEntrada', label:'Contadores de entrada'},
+            {key:'contadoresSalida', label:'Contadores de salida'},
+            {key:'totalMoneda',label:'Total de monedas'},
+            {key:'totalRecaudado',label:'Total Recaudado'},
+            {key:'totalComision',label:'Comision'},
+            {key:'totalCliente',label:'Total cliente'},
+            {key:'totalNeto',label:'Total neto'}
+            ]
+        };
+    }
+ });
+
 Template.formularioRegistro.events({
     'submit form':function(evt){
         evt.preventDefault();
