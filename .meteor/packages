@@ -28,4 +28,6 @@ session
 risul:accounting
 chart:chart
 random
-aslagle:reactive-table
+aldeed:tabular
+aldeed:autoform
+aldeed:collection2
