@@ -11,7 +11,11 @@
 <template name="main">
     <div class="container" style="width:90%">
         {{>navBar}}
+        {{#if currentUser}}
         {{>yield}}
+        {{else}}
+        {{>imagen}}
+        {{/if}}
         {{>foot}}
     </div>
 </template>
@@ -24,19 +28,24 @@
 
     <nav class="black-text">
         <div class="nav-wrapper  lime accent-3 black-text">
-            <a href="#!" class="brand-logo">SCIM</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            {{> loginButtons}}
             <ul class="right hide-on-med-and-down ">
+                {{#if currentUser}}
                 <li><a class="black-text" href="{{pathFor route='home'}}">Inicio</a></li>
                 <li><a class="black-text" href="{{pathFor route='registro'}}">Registrar</a></li>
                 <li><a class="black-text" href="{{pathFor route='contadores'}}">Contadores</a></li>
-                <li><a class="black-text" href="{{pathFor route='consulta'}}">Consulta</a></li>                
+                <li><a class="black-text" href="{{pathFor route='consulta'}}">Consulta</a></li>
+                {{/if}}                
             </ul>
             <ul class="side-nav" id="mobile-demo">
+                {{> loginButtons}}
+                {{#if currentUser}}
                 <li><a href="{{pathFor route='home'}}">Inicio</a></li>
                 <li><a href="{{pathFor route='registro'}}">Registrar</a></li>
                 <li><a href="{{pathFor route='contadores'}}">Contadores</a></li>
-                <li><a href="{{pathFor route='consulta'}}">Consulta</a></li>                
+                <li><a href="{{pathFor route='consulta'}}">Consulta</a></li>     
+                {{/if}}             
             </ul>
         </div>
     </nav>
@@ -56,25 +65,33 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="black-text">Footer Content</h5>
-                    <p class="black-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="black-text">Acerca de</h5>
+                    <p class="black-text text-lighten-4">Sistema de contadores para maquinas tragamonedas.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="black-text">Links</h5>
+                    <!-- <h5 class="black-text">Links</h5>
                     <ul>
                         <li><a class="black-text text-lighten-3" href="#!">Link 1</a></li>
                         <li><a class="black-text text-lighten-3" href="#!">Link 2</a></li>
                         <li><a class="black-text text-lighten-3" href="#!">Link 3</a></li>
                         <li><a class="black-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Emiliano Macias
-                <a class="black-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="black-text text-lighten-4 right" href="#!">Contacto</a>
             </div>
         </div>
     </footer>
+</template>
+
+<template name="imagen">
+    <div class="container">
+        <div style="margin:0px auto; width:20%">
+            <img src="images/tgr.gif" alt="Maquinitas">
+        </div>
+    </div>
 </template>

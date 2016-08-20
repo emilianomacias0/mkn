@@ -11,7 +11,8 @@ Meteor.methods({
 
     },
     'guardaContadores':function(obj){
-    	// obj.creadoPor = this.userId;
+    	obj.creadoPor = this.userId;
+    	obj.creadoEl = new Date();
     	Contadores.insert(obj);
     }
 });

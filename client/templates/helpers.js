@@ -88,5 +88,32 @@ Template.consulta.helpers({
 // });
 
 
+limpiaFormularioContadores = function(){
+    $('#contadorEntrada').val('');
+    // $('#contadorEntrada').blur();
+    $('#contadorSalida').val('');
+    // $('#contadorSalida').blur();
+    // $('#recaudado').blur();
+    //$('#totalMonedas').val('');
+    // $('#totalMonedas').blur();
+   // $('#comision').val('');
+    // $('#comision').blur();
+    //$('#cliente').val('');
+    // $('#cliente').blur();
+    //$('#neto').val('');
+    // $('#neto').blur();
+    Session.set('totalCliente','');
+    Session.set('recaudado','');
+    Session.set('totalRecaudado','');
+    Session.set('salida','');
+    Session.set('entrada','');
+    //Session.set('maquinita','');
+}
 
+ Session.set('totalCliente','');
+    Session.set('recaudado','');
+    Session.set('totalRecaudado','');
+    Session.set('salida','');
+    Session.set('entrada','');
+    Session.set('maquinita','');
 

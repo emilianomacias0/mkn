@@ -15,6 +15,7 @@ Maquinitas.attachSchema(new SimpleSchema({
 	creadoEl:{ type: Date, label: "" },
 }));
 
+
 Contadores = new Mongo.Collection('contadores');
 
 
@@ -51,3 +52,20 @@ TabularTables.Contadores = new Tabular.Table({
     // }
   ]
 });
+
+
+
+if(Meteor.isServer){
+	Meteor.publish('getMaquinitas',function(){
+		var userId = this.userId;
+		return Maquinitas.find({creadoPor:userId});
+	});
+	Meteor.publish('getContadores',function(){
+		var userId = this.userId;
+		return Contadores.find({creadoEl:userId});
+	});
+}
+if(Meteor.isClient){
+	Meteor.subscribe('getMaquinitas');
+	Meteor.subscribe('getContadores');
+}
